@@ -1,11 +1,16 @@
 import React from 'react';
-import { View, Keyboard, TouchableWithoutFeedback } from 'react-native';
+import {
+  View, Keyboard, TouchableWithoutFeedback, ImageBackground,
+} from 'react-native';
 import PropTypes from 'prop-types';
 
+import styles from './styles';
 
 const Container = ({ children }) => (
   <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-    <View>{children}</View>
+    <ImageBackground source={require('./Images/bg.jpg')} style={styles.bgImage}>
+      <View style={styles.container}>{children}</View>
+    </ImageBackground>
   </TouchableWithoutFeedback>
 );
 

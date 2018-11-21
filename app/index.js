@@ -7,7 +7,7 @@ import { AlertProvider } from './components/Alert';
 import store from './config/store';
 
 EStyleSheet.build({
-  $primaryColor: '#fff',
+  $white: '#fff',
 });
 
 export default () => (
