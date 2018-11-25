@@ -3,7 +3,8 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 export default EStyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
+    padding: 15,
+    // alignItems: 'center',
   },
   bgImage: {
     width: '100%',
@@ -12,7 +13,8 @@ export default EStyleSheet.create({
   },
   textContainerView: {
     flexDirection: 'row',
-    alignContent: 'space-between',
+    justifyContent: 'space-between',
     marginTop: 20,
+    flex: 1,
   },
 });

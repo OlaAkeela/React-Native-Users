@@ -6,7 +6,7 @@ const BORDER_RADIUS = 40;
 export default EStyleSheet.create({
   container: {
     height: BUTTON_HEIGHT,
-    width: '90%',
+    width: '100%',
     backgroundColor: '#673888',
     borderRadius: BORDER_RADIUS,
     justifyContent: 'center',

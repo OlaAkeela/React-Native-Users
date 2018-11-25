@@ -8,6 +8,9 @@ import store from './config/store';
 
 EStyleSheet.build({
   $white: '#fff',
+  $black: '#000',
+  $statusBar: '#b2b2b2',
+  $red: '#7c0a02',
 });
 
 export default () => (

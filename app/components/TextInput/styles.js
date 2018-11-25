@@ -6,7 +6,7 @@ const BORDER_RADIUS = 40;
 export default EStyleSheet.create({
   container: {
     backgroundColor: '$white',
-    width: '90%',
+    width: '100%',
     height: INPUT_HEIGHT,
     borderRadius: BORDER_RADIUS,
     flexDirection: 'row',
@@ -20,5 +20,11 @@ export default EStyleSheet.create({
     fontSize: 18,
     paddingHorizontal: 20,
     color: '$white',
+  },
+  errorMessage: {
+    color: '$red',
+    fontSize: 12,
+    paddingHorizontal: 20,
+    marginTop: -5,
   },
 });

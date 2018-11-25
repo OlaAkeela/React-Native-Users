@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { Button, Image, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { connectAlert } from '../components/Alert';
-import { Container } from '../components/Container';
-import { SmallText } from '../components/Text';
 
 const styles = StyleSheet.create({
   icon: {
@@ -14,13 +12,13 @@ const styles = StyleSheet.create({
   },
 });
 
-class Home extends Component {
+class SideMenu extends React.Component {
   static propTypes = {
     navigation: PropTypes.object,
   };
 
   static navigationOptions = {
-    drawerLabel: 'Home',
+    drawerLabel: 'Notifications',
     drawerIcon: ({ tintColor }) => (
       <Image
         source={require('../components/Logo/images/circle-bg.png')}
@@ -31,17 +29,12 @@ class Home extends Component {
 
   buttonPress = () => {
     const { navigation } = this.props;
-    navigation.toggleDrawer();
+    navigation.goBack();
   };
 
   render() {
-    return (
-      <Container>
-        <SmallText content="Welcome" />
-        <Button onPress={this.buttonPress} title="Go to notifications" />
-      </Container>
-    );
+    return <Button onPress={this.buttonPress} title="Go back home" />;
   }
 }
 
-export default connect()(connectAlert(Home));
+export default connect()(connectAlert(SideMenu));

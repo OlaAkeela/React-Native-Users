@@ -6,15 +6,22 @@ import PropTypes from 'prop-types';
 
 import styles from './styles';
 
-const Container = ({ children }) => (
-  <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-    <ImageBackground source={require('./Images/bg.jpg')} style={styles.bgImage}>
-      <View style={styles.container}>{children}</View>
-    </ImageBackground>
-  </TouchableWithoutFeedback>
-);
+const Container = ({ children, containerStyle = null }) => {
+  const containerStyles = [styles.container];
+  if (containerStyle) {
+    containerStyles.push(containerStyle);
+  }
+  return (
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      <ImageBackground source={require('./Images/bg.jpg')} style={styles.bgImage}>
+        <View style={containerStyles}>{children}</View>
+      </ImageBackground>
+    </TouchableWithoutFeedback>
+  );
+};
 
 Container.propTypes = {
   children: PropTypes.any,
+  containerStyle: PropTypes.any,
 };
 export default Container;
