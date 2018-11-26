@@ -1,22 +1,20 @@
 import React, { Component } from 'react';
 import { View, Text, StatusBar } from 'react-native';
-import PropTypes from 'prop-types';
 
+// eslint-disable-next-line react/prefer-stateless-function
 class TermsAndPolicies extends Component {
-  static propTypes = {
-    navigation: PropTypes.object,
-  };
-
-  backToHome = () => {
-    const { navigation } = this.props;
-    navigation.navigate('Home');
-  };
-
   render() {
     return (
-      <View>
-        <StatusBar translucent={false} barStyle="light-content" />
-        <Text>Terms and Policies</Text>
+      <View
+        style={{
+          alignItems: 'center',
+          backgroundColor: '#e7b382',
+          flex: 1,
+          justifyContent: 'center',
+        }}
+      >
+        {/* <StatusBar translucent={false} barStyle="light-content" /> */}
+        <Text style={{ fontSize: 24 }}>Terms and Policies</Text>
       </View>
     );
   }
