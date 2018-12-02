@@ -1,5 +1,4 @@
 import React from 'react';
-import { Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {
   createStackNavigator,
@@ -13,20 +12,18 @@ import Login from '../screens/Login';
 import Signup from '../screens/Signup';
 import ForgetPassword from '../screens/ForgetPassword';
 import TermsAndPolicies from '../screens/TermsAndPolicies';
-import Camera from '../screens/Camera';
+import CameraScreen from '../screens/Camera';
+import Profile from '../screens/Profile';
 
-const DrawerIcon = ({ navigation }) => {
-  console.log(navigation);
-  return (
-    <Icon
-      name="md-menu"
-      size={28}
-      color="black"
-      onPress={() => navigation.OpenDrawer()}
-      style={{ paddingLeft: 20 }}
-    />
-  );
-};
+const DrawerIcon = navigation => (
+  <Icon
+    name="md-menu"
+    size={28}
+    color="black"
+    onPress={() => navigation.toggleDrawer()}
+    style={{ paddingLeft: 20 }}
+  />
+);
 
 const TabNavigator = createBottomTabNavigator(
   {
@@ -37,8 +34,15 @@ const TabNavigator = createBottomTabNavigator(
         tabBarIcon: () => <Icon name="md-home" size={28} color="black" />,
       },
     },
+    Profile: {
+      screen: Profile,
+      navigationOptions: {
+        tabBarLabel: 'Profile',
+        tabBarIcon: () => <Icon name="md-home" size={28} color="black" />,
+      },
+    },
     Camera: {
-      screen: Camera,
+      screen: CameraScreen,
       navigationOptions: {
         tabBarLabel: 'Camera',
         tabBarIcon: () => <Icon name="md-camera" size={28} color="black" />,

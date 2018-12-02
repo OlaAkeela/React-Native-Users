@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StatusBar } from 'react-native';
+import { View, Text } from 'react-native';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class Home extends Component {
