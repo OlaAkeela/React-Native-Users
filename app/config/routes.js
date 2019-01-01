@@ -38,7 +38,8 @@ const TabNavigator = createBottomTabNavigator(
       screen: Profile,
       navigationOptions: {
         tabBarLabel: 'Profile',
-        tabBarIcon: () => <Icon name="md-home" size={28} color="black" />,
+        tabBarIcon: () => <Icon name="ios-person" size={28} color="black" />,
+        header: () => null,
       },
     },
     Camera: {
@@ -53,6 +54,7 @@ const TabNavigator = createBottomTabNavigator(
     tabBarOptions: {
       showLabel: false,
       activeBackgroundColor: '#b4cde6',
+      order: [Profile, Home, CameraScreen],
     },
   },
 );
@@ -74,17 +76,17 @@ const DrawerNavigator = createDrawerNavigator({
 
 const HomeStack = createStackNavigator(
   {
-    Home: {
-      screen: DrawerNavigator,
-      navigationOptions: ({ navigation }) => ({
-        headerLeft: <DrawerIcon {...navigation} />,
-      }),
-    },
     Login: {
       screen: Login,
       navigationOptions: {
         header: () => null,
       },
+    },
+    Home: {
+      screen: DrawerNavigator,
+      navigationOptions: ({ navigation }) => ({
+        headerLeft: <DrawerIcon {...navigation} />,
+      }),
     },
     Signup: {
       screen: Signup,

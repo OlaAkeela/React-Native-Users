@@ -1,22 +1,20 @@
 import React, { Component } from 'react';
-import { Text } from 'react-native';
+import { ScrollView } from 'react-native';
 
-import { Container } from '../components/Container';
+import { ProfileTopSection, SettingsContainer } from '../components/Container';
 
-// eslint-disable-next-line react/prefer-stateless-function
 class Profile extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-    };
+    this.state = {};
   }
 
   render() {
     return (
-      <Container>
-        <Text> Profile</Text>
-      </Container>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <ProfileTopSection />
+        <SettingsContainer />
+      </ScrollView>
     );
   }
 }

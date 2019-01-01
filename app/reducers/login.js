@@ -1,4 +1,4 @@
-import { LOGIN, SIGNUP, FORGET_PASSWORD } from '../actions/login';
+import { LOGIN, SIGNUP, FORGET_PASSWORD, LOGIN_AS_GUEST } from '../actions/login';
 
 const initialState = {
   userID: null,
@@ -11,7 +11,13 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isLoggedIn: true,
-        userID: '111',
+        userName: action.userName,
+      };
+    case LOGIN_AS_GUEST:
+      return {
+        ...state,
+        isLoggedIn: false,
+        userName: 'Guest',
       };
     case SIGNUP:
       return {

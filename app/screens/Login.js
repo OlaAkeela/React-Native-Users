@@ -10,7 +10,7 @@ import { Logo } from '../components/Logo';
 import { TextInputWithIcon } from '../components/TextInput';
 import { ButtonOriginal } from '../components/Buttons';
 import { SmallText } from '../components/Text';
-import { login } from '../actions/login';
+import { login, loginAsGuest } from '../actions/login';
 
 class Login extends Component {
   static propTypes = {
@@ -31,9 +31,6 @@ class Login extends Component {
 
   loginPress = () => {
     const { username, password } = this.state;
-
-    const { dispatch } = this.props;
-    dispatch(login());
     const usernameError = validate(username, ['notEmpty']);
     const passwordError = validate(password, ['notEmpty']);
 
@@ -41,6 +38,8 @@ class Login extends Component {
       usernameError,
       passwordError,
     });
+    const { dispatch } = this.props;
+    dispatch(login(username));
     if (!(usernameError && passwordError)) {
       if (username === 'Ola' && password === '123') {
         const { navigation } = this.props;
@@ -57,6 +56,13 @@ class Login extends Component {
   forgetPasswordPress = () => {
     const { navigation } = this.props;
     navigation.navigate('ForgetPassword');
+  };
+
+  loginAsGuestPress = () => {
+    const { dispatch } = this.props;
+    dispatch(loginAsGuest());
+    const { navigation } = this.props;
+    navigation.navigate('Home');
   };
 
   usernameChange = (value) => {
@@ -99,7 +105,8 @@ class Login extends Component {
         <ButtonOriginal title="LOGIN" onPress={this.loginPress} />
         <TextContainer>
           <SmallText content="Create Account" onPress={this.createAccountPress} />
-          <SmallText content="Forgot Password" onPress={this.forgetPasswordPress} />
+          {/* <SmallText content="Forgot Password" onPress={this.forgetPasswordPress} /> */}
+          <SmallText content="Login As Guest" onPress={this.loginAsGuestPress} />
         </TextContainer>
       </Container>
     );
